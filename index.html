@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="중앙정부 정책·보도자료를 부산 첨단산업 관점에서 정리한 정책브리핑">
+<title>부산 첨단산업 정책브리핑</title>
+<style>
+:root{
+  --navy:#17385f;--navy2:#102c4c;--blue:#2777d7;--ink:#14253a;--muted:#62748a;
+  --line:#dfe7f0;--card:#fff;--bg:#f4f7fb;--green:#16885d;--orange:#d97706;
+  --purple:#6d4bd4;--shadow:0 8px 28px rgba(23,56,95,.08)
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI","Noto Sans KR","Apple SD Gothic Neo",sans-serif;line-height:1.6}
+button,input,select{font:inherit}a{color:inherit}.top{background:linear-gradient(135deg,var(--navy2),var(--navy));color:#fff}
+.topin{max-width:1180px;margin:auto;padding:30px 22px 26px}.brandrow{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand h1{font-size:26px;margin:0 0 4px;font-weight:850;letter-spacing:-.6px}.brand p{margin:0;color:#d8e7f6;font-size:14px}
+.update{font-size:12px;color:#d8e7f6;background:rgba(255,255,255,.09);padding:8px 12px;border-radius:999px;white-space:nowrap}
+.main{max-width:1180px;margin:0 auto;padding:22px}.searchbox{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:var(--shadow);display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px}
+.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:12px;font-weight:750;color:var(--muted)}
+.field input,.field select{width:100%;border:1px solid #cfdbe8;border-radius:11px;padding:11px 12px;background:#fff;outline:none;color:var(--ink)}
+.field input:focus,.field select:focus{border-color:#7fb1e7;box-shadow:0 0 0 3px rgba(39,119,215,.09)}
+.reset{align-self:end;border:0;background:#edf3fa;color:#234667;font-weight:750;border-radius:11px;padding:12px 16px;cursor:pointer}
+.toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:20px 2px 12px;flex-wrap:wrap}
+.count{font-weight:800;font-size:15px}.count strong{color:var(--blue)}
+.select-tools{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.mini{border:1px solid #cbd8e6;background:#fff;color:#325573;border-radius:9px;padding:7px 10px;font-size:12px;font-weight:800;cursor:pointer}
+.sortnote{font-size:12px;color:var(--muted)}.list{display:grid;gap:14px}
+.card{position:relative;background:var(--card);border:1px solid var(--line);border-radius:17px;padding:20px 20px 20px 52px;box-shadow:0 3px 16px rgba(23,56,95,.045);transition:.16s}
+.card:hover{box-shadow:var(--shadow)}.card.selected{border-color:#7daee4;background:#fbfdff}
+.pick{position:absolute;left:18px;top:21px;width:20px;height:20px;accent-color:var(--blue);cursor:pointer}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:9px}.badge{display:inline-flex;align-items:center;border-radius:999px;padding:4px 9px;font-size:11px;font-weight:800;background:#edf4fb;color:#24547c}
+.badge.sector{background:#e9f7f0;color:#176d4e}.badge.score{background:#fff3df;color:#a85b00}.card h2{margin:0 0 10px;font-size:19px;line-height:1.38}
+.summary-title{font-size:12px;font-weight:850;color:#46617b;margin:3px 0 5px}.summary{margin:0;padding-left:20px;color:#334a61;font-size:14px}
+.summary li{margin:5px 0}.summary strong{font-weight:850;color:#102f50;background:linear-gradient(transparent 72%,#dcecff 72%)}.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:13px}.tag{font-size:11px;color:#5a6f84;background:#f3f6f9;border-radius:7px;padding:4px 7px}
+.actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.btn{border:1px solid #bdd3eb;background:#f7fbff;color:#175da5;border-radius:9px;padding:8px 11px;font-weight:800;font-size:12px;cursor:pointer;text-decoration:none}
+.btn.primary{background:var(--blue);border-color:var(--blue);color:#fff}.btn.file{background:#f1faf6;border-color:#b9dfcf;color:#14704d}
+.btn.disabled{background:#f5f6f8;color:#9aa7b3;border-color:#e1e5ea;cursor:default}.empty{text-align:center;padding:70px 20px;color:var(--muted);background:#fff;border:1px dashed #cbd8e5;border-radius:17px}
+.footer{max-width:1180px;margin:10px auto 0;padding:24px 22px 100px;color:#6c7e90;font-size:12px}.footer strong{color:#405a73}
+.overlay{position:fixed;inset:0;background:rgba(10,25,42,.46);z-index:50;display:none}.overlay.on{display:block}
+.drawer{position:absolute;right:0;top:0;height:100%;width:min(760px,96vw);background:#fff;overflow:auto;box-shadow:-16px 0 50px rgba(0,0,0,.15)}
+.dhead{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);padding:18px 20px;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;z-index:2}
+.dhead h3{margin:0;font-size:19px;line-height:1.4}.close{border:0;background:#edf2f7;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer}
+.dbody{padding:20px}.section{margin:0 0 24px}.section h4{font-size:14px;margin:0 0 9px;color:#183c61}.points{margin:0;padding-left:20px;color:#31495f}.points li{margin:6px 0}.points strong{font-weight:850;color:#102f50}
+.ai-grid{display:grid;grid-template-columns:1fr;gap:12px}.ai-box{border:1px solid #dce6f0;border-radius:14px;padding:15px;background:#fbfdff}.ai-box h4{margin:0 0 7px;font-size:13px}
+.ai-box p{margin:0;color:#344d64;font-size:13px;white-space:pre-line}.ai-box.relation{border-left:4px solid var(--orange)}.ai-box.policy{border-left:4px solid var(--green)}.ai-box.action{border-left:4px solid var(--purple)}
+.ai-label{font-size:11px;font-weight:800;color:#73869a;margin-bottom:5px}.notice{background:#fff8e8;border:1px solid #f3dfad;border-radius:12px;padding:12px 14px;font-size:12px;color:#6c5526;margin:0 0 18px}
+.sourcebox{background:#f2f7fc;border:1px solid #d6e4f2;border-radius:13px;padding:14px;margin-top:22px}.sourcebox p{margin:0 0 10px;font-size:12px;color:#5d7186}
+.exportbar{position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(130%);z-index:40;width:min(850px,calc(100vw - 24px));background:#102f50;color:#fff;border-radius:17px;padding:12px 14px;box-shadow:0 14px 40px rgba(8,27,47,.28);display:flex;align-items:center;justify-content:space-between;gap:12px;transition:.22s}
+.exportbar.on{transform:translateX(-50%) translateY(0)}.selected-count{font-size:13px;font-weight:800}.export-actions{display:flex;gap:8px}
+.ebtn{border:0;border-radius:10px;padding:9px 12px;font-weight:850;font-size:12px;cursor:pointer}.ebtn.word{background:#fff;color:#1e568c}.ebtn.pdf{background:#e9f5ff;color:#0c5e9e}.ebtn.clear{background:rgba(255,255,255,.12);color:#fff}
+@media(max-width:780px){
+ .topin{padding:22px 16px 20px}.brandrow{display:block}.brand h1{font-size:22px}.update{display:inline-block;margin-top:12px}
+ .main{padding:14px 12px}.searchbox{grid-template-columns:1fr 1fr;padding:12px}.field.search{grid-column:1/-1}.reset{width:100%}
+ .card{padding:16px 14px 16px 47px}.pick{left:15px;top:18px}.card h2{font-size:17px}.exportbar{bottom:10px}
+}
+@media(max-width:520px){
+ .searchbox{grid-template-columns:1fr}.field.search{grid-column:auto}.actions{display:grid;grid-template-columns:1fr 1fr}.btn{text-align:center}
+ .exportbar{display:block}.export-actions{margin-top:8px;display:grid;grid-template-columns:1fr 1fr}.ebtn.clear{grid-column:1/-1}
+}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="topin">
+    <div class="brandrow">
+      <div class="brand">
+        <h1>부산 첨단산업 정책브리핑</h1>
+        <p>중앙정부 정책·보도자료를 부산 첨단산업 관점에서 분석·정리합니다.</p>
+      </div>
+      <div class="update" id="updated">최근 업데이트 확인 중</div>
+    </div>
+  </div>
+</header>
+
+<main class="main">
+<section class="searchbox" aria-label="정책자료 검색">
+  <div class="field search"><label for="q">통합검색</label><input id="q" type="search" placeholder="제목, 핵심내용, 부산 연계, 대응방안 검색"></div>
+  <div class="field"><label for="ministry">부처</label><select id="ministry"><option value="">전체 부처</option></select></div>
+  <div class="field"><label for="sector">산업분야</label><select id="sector"><option value="">전체 분야</option></select></div>
+  <button class="reset" id="reset">초기화</button>
+</section>
+
+<div class="toolbar">
+  <div>
+    <span class="count">정책자료 <strong id="count">0</strong>건</span>
+    <span class="sortnote"> · 최신 발표일 순</span>
+  </div>
+  <div class="select-tools">
+    <button class="mini" id="selectVisible">현재 검색결과 전체 선택</button>
+    <button class="mini" id="clearSelectionTop">선택 해제</button>
+  </div>
+</div>
+<section class="list" id="list"></section>
+</main>
+
+<footer class="footer">
+  <strong>이용 안내</strong> · 정부 공식자료를 AI가 요약·분석한 참고정보입니다.
+  정책·사업 판단 시 반드시 정부 원문을 확인해 주세요.
+  <div style="margin-top:6px" id="sourceNote"></div>
+</footer>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="AI 분석 상세">
+  <div class="drawer">
+    <div class="dhead"><h3 id="dtitle"></h3><button class="close" id="close" aria-label="닫기">×</button></div>
+    <div class="dbody" id="dbody"></div>
+  </div>
+</div>
+
+<div class="exportbar" id="exportbar">
+  <div class="selected-count">선택한 정책 <span id="selectedCount">0</span>건</div>
+  <div class="export-actions">
+    <button class="ebtn word" id="exportWord">워드(.doc) 저장</button>
+    <button class="ebtn pdf" id="exportPdf">PDF 저장</button>
+    <button class="ebtn clear" id="clearSelection">전체 선택 해제</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const data=Array.isArray(window.PUBLIC_DATA)?window.PUBLIC_DATA:[], meta=window.PUBLIC_PORTAL_META||{};
+const selected=new Set();
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const dateFmt=d=>{if(!d)return'';const p=d.split('-');return p.length===3?`${p[0]}.${p[1]}.${p[2]}`:d};
+function uniq(k){return[...new Set(data.map(x=>x[k]).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),'ko'))}
+function fillSelect(id,k){const el=$(id);uniq(k).forEach(v=>{const o=document.createElement('option');o.value=v;o.textContent=v;el.appendChild(o)})}
+function toBulletText(v){
+  let s=String(v??'').trim().replace(/^[•·\-–—\s]+/,'').replace(/[.!。]\s*$/,'');
+  const replacements=[
+    [/검토할 필요가 있습니다$/,'검토 필요'],[/확인할 필요가 있습니다$/,'확인 필요'],
+    [/연계할 필요가 있습니다$/,'연계 필요'],[/추진할 계획입니다$/,'추진 계획'],
+    [/연결될 수 있습니다$/,'연계 가능'],[/확대될 수 있습니다$/,'확대 가능'],
+    [/구체화합니다$/,'구체화'],[/추진합니다$/,'추진'],[/마련합니다$/,'마련'],
+    [/강화합니다$/,'강화'],[/확대합니다$/,'확대'],[/구축합니다$/,'구축'],
+    [/지원합니다$/,'지원'],[/발굴합니다$/,'발굴'],[/검토합니다$/,'검토'],
+    [/제시합니다$/,'제시'],[/가동합니다$/,'가동'],[/유도합니다$/,'유도'],
+    [/적용됩니다$/,'적용'],[/추진됩니다$/,'추진'],[/확대됩니다$/,'확대'],
+    [/예정입니다$/,'예정'],[/계획입니다$/,'계획'],[/필요합니다$/,'필요'],
+    [/가능합니다$/,'가능'],[/입니다$/,'']
+  ];
+  for(const [a,b] of replacements)s=s.replace(a,b);
+  s=s.replace(/^정부가\s+/,'정부, ').replace(/^정부는\s+/,'정부, ').replace(/^부산은\s+/,'부산, ');
+  return s.trim().replace(/[.!。]\s*$/,'');
+}
+const IMPORTANT_TERMS=[
+  '한미 조선협력','국적선 공동발주','친환경선박','자율운항선박','전력반도체',
+  '기회발전특구','규제자유특구','특화단지','데이터센터','전문인력','안전기준',
+  '운항조건','버티포트','수리조선','공급망','국비','총사업비','사업비','공모',
+  '실증','상용화','사업화','공동발주','기술개발','투자','수출','일자리',
+  'MRO','UAM','SiC','LNG'
+].sort((a,b)=>b.length-a.length);
+function reEscape(s){return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')}
+const IMPORTANT_RE=new RegExp(
+  "(?:\\d{4}년|[’']?\\d{2}년|\\d+(?:[.,]\\d+)?\\s*(?:조원|억원|만원|원|%|MW|GW|kW|명|개|건|곳|회|대|척|기|개월|km|㎞|㎡|톤|t)|"+
+  IMPORTANT_TERMS.map(reEscape).join('|')+")","g"
+);
+function importantMarkup(v){
+  const s=String(v??'');let out='',last=0;
+  for(const m of s.matchAll(IMPORTANT_RE)){
+    out+=esc(s.slice(last,m.index))+'<strong>'+esc(m[0])+'</strong>';
+    last=m.index+m[0].length;
+  }
+  return out+esc(s.slice(last));
+}
+function summaryOf(x){
+  const source=Array.isArray(x.public_summary)&&x.public_summary.length
+    ? x.public_summary
+    : [...(x.key_points||[]),...(x.summary_points||[])];
+  const out=[];
+  for(const raw of source){
+    const v=toBulletText(raw);
+    if(v&&!out.includes(v))out.push(v);
+    if(out.length>=6)break;
+  }
+  return out;
+}
+function textOf(x){return[x.title,x.ministry,x.department,x.sector,x.why_related,x.policy_link,x.analysis_note,...summaryOf(x),...(x.response_plan||[]),...(x.tags||[])].join(' ').toLowerCase()}
+function filtered(){const q=$('#q').value.trim().toLowerCase(),m=$('#ministry').value,s=$('#sector').value;return data.filter(x=>(!q||textOf(x).includes(q))&&(!m||x.ministry===m)&&(!s||x.sector===s)).sort((a,b)=>(b.date||'').localeCompare(a.date||''))}
+function fileButton(x){
+  if(x.file_url){
+    const fn=esc(x.file_name||'정부 보도자료 원문');
+    return `<a class="btn file" href="${esc(x.file_url)}" download="${fn}">원문파일 다운로드 ↓</a>`;
+  }
+  return `<span class="btn disabled">원문파일 미등록</span>`;
+}
+function render(){
+  const rows=filtered();$('#count').textContent=rows.length;const list=$('#list');
+  if(!rows.length){list.innerHTML='<div class="empty">조건에 맞는 정책자료가 없습니다.</div>';updateExportBar();return}
+  list.innerHTML=rows.map(x=>`
+  <article class="card ${selected.has(Number(x.id))?'selected':''}" id="card-${Number(x.id)}">
+    <input class="pick" type="checkbox" aria-label="${esc(x.title)} 선택" ${selected.has(Number(x.id))?'checked':''} onchange="togglePick(${Number(x.id)},this.checked)">
+    <div class="meta">
+      <span class="badge">${esc(dateFmt(x.date))}</span>
+      <span class="badge">${esc(x.ministry)}</span>
+      <span class="badge sector">${esc(x.sector)}</span>
+      ${x.score?`<span class="badge score">AI 관련성 ${esc(x.score)}점</span>`:''}
+    </div>
+    <h2>${esc(x.title)}</h2>
+    <div class="summary-title">핵심내용</div>
+    <ul class="summary">${summaryOf(x).slice(0,6).map(v=>`<li>${importantMarkup(v)}</li>`).join('')}</ul>
+    <div class="tags">${(x.tags||[]).slice(0,6).map(t=>`<span class="tag">#${esc(t)}</span>`).join('')}</div>
+    <div class="actions">
+      <button class="btn primary" onclick="openDetail(${Number(x.id)})">AI 분석 상세</button>
+      ${x.source_url?`<a class="btn" href="${esc(x.source_url)}" target="_blank" rel="noopener">정부 원문 페이지 ↗</a>`:''}
+      ${fileButton(x)}
+    </div>
+  </article>`).join('');
+  updateExportBar();
+}
+window.togglePick=function(id,on){id=Number(id);on?selected.add(id):selected.delete(id);const c=$('#card-'+id);if(c)c.classList.toggle('selected',on);updateExportBar()}
+function updateExportBar(){
+  const n=selected.size;$('#selectedCount').textContent=n;$('#exportbar').classList.toggle('on',n>0);
+}
+window.openDetail=function(id){
+  const x=data.find(v=>Number(v.id)===Number(id));if(!x)return;$('#dtitle').textContent=x.title;
+  const response=(x.response_plan||[]).map(v=>`<li>${esc(v)}</li>`).join('');
+  $('#dbody').innerHTML=`
+  <div class="notice">AI 분석은 정부 공식자료와 공개된 정책정보를 바탕으로 작성한 참고자료입니다. 정확한 사업조건·예산·일정은 정부 원문과 후속 공고를 확인해 주세요.</div>
+  <div class="meta"><span class="badge">${esc(dateFmt(x.date))}</span><span class="badge">${esc(x.ministry)}</span><span class="badge sector">${esc(x.sector)}</span>${x.score?`<span class="badge score">관련성 ${esc(x.score)}/100</span>`:''}${x.confidence?`<span class="badge">신뢰도 ${esc(x.confidence)}</span>`:''}</div>
+  <section class="section"><h4>핵심내용</h4><ul class="points">${summaryOf(x).map(v=>`<li>${importantMarkup(v)}</li>`).join('')}</ul></section>
+  <section class="section"><h4>원문 주요 확인사항</h4><ul class="points">${(x.key_points||[]).map(v=>`<li>${esc(v)}</li>`).join('')}</ul></section>
+  <div class="ai-grid">
+    ${x.why_related?`<div class="ai-box relation"><div class="ai-label">AI 분석</div><h4>부산 첨단산업 관련성</h4><p>${esc(x.why_related)}</p></div>`:''}
+    ${x.policy_link?`<div class="ai-box policy"><div class="ai-label">AI 분석</div><h4>부산 정책·사업 연계</h4><p>${esc(x.policy_link)}</p></div>`:''}
+    ${response?`<div class="ai-box action"><div class="ai-label">AI 분석</div><h4>대응·활용 아이디어</h4><ul class="points">${response}</ul></div>`:''}
+    ${x.analysis_note?`<div class="ai-box"><div class="ai-label">AI 분석 참고</div><p>${esc(x.analysis_note)}</p></div>`:''}
+  </div>
+  ${x.tags?.length?`<section class="section" style="margin-top:22px"><h4>관련 키워드</h4><div class="tags">${x.tags.map(t=>`<span class="tag">#${esc(t)}</span>`).join('')}</div></section>`:''}
+  <div class="sourcebox"><p>정책 세부내용과 정확한 수치·조건은 정부 공식 원문을 기준으로 확인해 주세요.</p>
+    <div class="actions">
+      ${x.source_url?`<a class="btn primary" href="${esc(x.source_url)}" target="_blank" rel="noopener">정부 원문 페이지 ↗</a>`:''}
+      ${fileButton(x)}
+    </div>
+  </div>`;
+  $('#overlay').classList.add('on');document.body.style.overflow='hidden'
+}
+function closeDetail(){$('#overlay').classList.remove('on');document.body.style.overflow=''}
+$('#close').onclick=closeDetail;$('#overlay').addEventListener('click',e=>{if(e.target.id==='overlay')closeDetail()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
+['#q','#ministry','#sector'].forEach(s=>$(s).addEventListener(s==='#q'?'input':'change',render));
+$('#reset').onclick=()=>{$('#q').value='';$('#ministry').value='';$('#sector').value='';render()};
+$('#selectVisible').onclick=()=>{filtered().forEach(x=>selected.add(Number(x.id)));render()};
+function clearAll(){selected.clear();render()}
+$('#clearSelection').onclick=clearAll;$('#clearSelectionTop').onclick=clearAll;
+
+function selectedRows(){
+  return data.filter(x=>selected.has(Number(x.id))).sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+}
+function exportDocHtml(rows,forPrint=false){
+  const today=new Date().toLocaleDateString('ko-KR');
+  const items=rows.map((x,i)=>`
+    <section class="item">
+      <div class="num">${i+1}</div>
+      <h2>${esc(x.title)}</h2>
+      <div class="meta2">${esc(dateFmt(x.date))} · ${esc(x.ministry)} · ${esc(x.sector)}</div>
+      <h3>핵심내용</h3>
+      <ul>${summaryOf(x).map(v=>`<li>${importantMarkup(v)}</li>`).join('')}</ul>
+    </section>`).join('');
+  return `<!doctype html><html><head><meta charset="utf-8"><title>부산 첨단산업 정책브리핑 선택자료</title>
+  <style>
+    @page{size:A4;margin:18mm 17mm}
+    body{font-family:"Malgun Gothic","맑은 고딕","Noto Sans KR",sans-serif;color:#172b40;line-height:1.65;margin:${forPrint?'0':'28px'};font-size:11pt}
+    h1{font-size:21pt;color:#17385f;margin:0 0 5px} .sub{color:#66798d;margin-bottom:24px}
+    .item{position:relative;border-top:2px solid #17385f;padding:16px 0 20px;margin:0 0 10px;${forPrint?'break-inside:avoid;':''}}
+    .num{font-weight:700;color:#2777d7;font-size:10pt}.item h2{font-size:15pt;margin:2px 0 5px;color:#172b40}
+    .meta2{font-size:9.5pt;color:#687b8e;margin-bottom:12px}.item h3{font-size:10.5pt;color:#17385f;margin:8px 0 4px}
+    ul{margin:0;padding-left:20px}li{margin:4px 0}strong{font-weight:800;color:#102f50}
+    .foot{margin-top:25px;border-top:1px solid #dbe3eb;padding-top:10px;color:#758697;font-size:9pt}
+  </style></head><body>
+  <h1>부산 첨단산업 정책브리핑</h1>
+  <div class="sub">선택 정책자료 ${rows.length}건 · 문서생성 ${esc(today)}</div>
+  ${items}
+  <div class="foot">※ 정부 공식 보도자료를 이해하기 쉽게 정리한 참고자료입니다. 정확한 내용은 정부 원문을 확인해 주세요.</div>
+  </body></html>`;
+}
+$('#exportWord').onclick=()=>{
+  const rows=selectedRows();if(!rows.length){alert('먼저 정책자료를 선택해 주세요.');return}
+  const html=exportDocHtml(rows,false);
+  const blob=new Blob(['\ufeff',html],{type:'application/msword;charset=utf-8'});
+  const url=URL.createObjectURL(blob),a=document.createElement('a');
+  const ymd=new Date().toISOString().slice(0,10).replaceAll('-','');
+  a.href=url;a.download=`부산_첨단산업_정책브리핑_선택자료_${ymd}.doc`;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000);
+}
+$('#exportPdf').onclick=()=>{
+  const rows=selectedRows();if(!rows.length){alert('먼저 정책자료를 선택해 주세요.');return}
+  const w=window.open('','_blank');
+  if(!w){alert('팝업이 차단되었습니다. 이 사이트의 팝업을 허용한 뒤 다시 눌러 주세요.');return}
+  w.document.open();w.document.write(exportDocHtml(rows,true));w.document.close();
+  w.onload=()=>setTimeout(()=>{w.focus();w.print()},250);
+  setTimeout(()=>{try{w.focus();w.print()}catch(e){}},600);
+}
+fillSelect('#ministry','ministry');fillSelect('#sector','sector');
+$('#updated').textContent=meta.generated_at?`최근 업데이트 ${meta.generated_at}`:'정책자료 업데이트';
+$('#sourceNote').textContent=meta.source_note?`자료 출처: ${meta.source_note}`:'';
+render();
+</script>
+</body>
+</html>
