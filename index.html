@@ -118,7 +118,9 @@ button,input,select{font:inherit}a{color:inherit}.top{background:linear-gradient
   </div>
 </div>
 
-<script src="data.js"></script>
+<script>
+document.write('<script src="data.js?v=' + Date.now() + '"><\/script>');
+</script>
 <script>
 const data=Array.isArray(window.PUBLIC_DATA)?window.PUBLIC_DATA:[], meta=window.PUBLIC_PORTAL_META||{};
 const selected=new Set();
