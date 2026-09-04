@@ -1,4 +1,4 @@
-window.PUBLIC_PORTAL_META = {"generated_at": "2026-09-03 17:14", "source_note": "대한민국 정책브리핑 및 중앙부처 공식 보도자료"};
+window.PUBLIC_PORTAL_META = {"generated_at": "2026-09-04 12:57", "source_note": "대한민국 정책브리핑 및 중앙부처 공식 보도자료"};
 window.PUBLIC_DATA = [
   {
     "id": 12,
